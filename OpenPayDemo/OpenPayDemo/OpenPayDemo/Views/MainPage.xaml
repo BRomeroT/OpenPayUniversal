@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Core.Lib.ViewModels"
+             x:Class="OpenPayDemo.MainPage">
+
+    <StackLayout  x:DataType="vm:PagoViewModel">
+        <StackLayout.BindingContext>
+            <vm:PagoViewModel/>
+        </StackLayout.BindingContext>
+
+
+        <Label Text="Nombre"/>
+        <Entry Text="{Binding HolderName}"/>
+        <Label Text="Numero de Tarjeta"/>
+        <Entry Text="{Binding Number}" />
+
+        <Label Text="Mes de Expiración"/>
+        <Entry Text="{Binding ExpirationMonth}" />
+
+        <Label Text="Año de Expiración"/>
+        <Entry Text="{Binding ExpirationYear}" />
+
+        <Label Text="CVV"/>
+        <Entry Text="{Binding Cvv2}" />
+
+        <Label Text="Cantidad" />
+        <Entry Text="{Binding Cantidad}" />
+
+
+        <Label Text="{Binding ValidationSumary}" TextColor="Red" IsVisible="{Binding HasErrors}"/>
+
+        <Label Text="{Binding Message}"/>
+
+        <Button Text="Pagar" Command="{Binding PagarCommand}"/>
+        
+    </StackLayout>
+  
+</ContentPage>
